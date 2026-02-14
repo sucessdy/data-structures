@@ -27,8 +27,30 @@ int maximum(vector<int> &arr)
     }
     return max;
 }
+
+vector<int> Prefix (vector<int> arr) {
+    int size = arr.size() ; 
+
+    vector<int> prefix(size) ; 
+prefix[0] = arr[0] ; 
+for (int i = 1; i < size ; i ++) { 
+prefix[i] =prefix[i -1  ] + arr[i];
+}
+return prefix;
+
+}
 int main()
 {
     vector<int> n = {100, 80,100, 8999, 9999999};
     cout << maximum(n) << endl;
+    vector<int> arr =  {10, 20, 10, 5, 15};
+
+    vector<int> ans= Prefix(arr) ; 
+    for (auto i : ans){ 
+        cout << i << endl;
+
+    }
+
+    return 0 ;
+
 }

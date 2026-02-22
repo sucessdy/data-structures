@@ -4,27 +4,32 @@
 
 using namespace std; 
 
-// int singleNumberThrice(vector<int> &nums) { 
+int singleNumberThrice(vector<int> &num) { 
+
+int res = 0; 
+vector<int> bit(32) ; 
 
 
-// int res = 0; 
-// for (int i = 0; i < 32 ;i ++){
-// int cnt =0; 
-//     for ( auto i : num){
-// if (num & (1 << i)){ 
-//      cnt++; 
-// } 
 
-//     }
-//     if (cnt % 3 ==1 ){
-//         res |= (1 << i) ; 
-//     }
-//     return res; 
+for (int  n : num){ 
+    for (int i = 0; i < 32 ; i++){ 
+        if (n & ( 1<< i)) {
+            bit[i]++ ; 
+        }
+    }
+    
+}
 
-// }
+for (int i = 0 ; i< 32 ; i ++ ) { 
+   if (bit[i] % 3 == 1){
 
+    res|= (1<< i);
+   } 
+}
 
-// }
+return res ; 
+
+}
 
 
 int countSetBit(int n ){
@@ -40,13 +45,16 @@ int countSetBit(int n ){
 int main (){ 
 
 
-    int n= 13; 
-    cout << countSetBit(n) << endl; 
-    unsigned int num = 25; 
+    vector<int> n = {1, 2, 3, 2, 3, 2, 3} ; 
+    cout << singleNumberThrice(n)<< endl; 
 
-    unsigned int mask = (1 << 0) |  (1 << 2 ) | (1 << 3) ; 
-num ^=mask; 
-cout << num << endl; 
+    // int n= 13; 
+    // cout << countSetBit(n) << endl; 
+//     unsigned int num = 25; 
+
+//     unsigned int mask = (1 << 0) |  (1 << 2 ) | (1 << 3) ; 
+// num ^=mask; 
+// cout << num << endl; 
 return 0; 
 }
 

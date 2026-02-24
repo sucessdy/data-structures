@@ -154,7 +154,6 @@ int main()
     // decimal to binary
     //     int n = 13;
     //     string bin = "";
-
     //     while (n > 0){
     // bin = to_string(n % 2) + bin ;
     // n/= 2;

@@ -24,35 +24,30 @@ int ConstantWindow(vector<int> &arr, int k)
 }
 // Maximum Sum of a Subarray with K Elements
 // this si where we Try every window
-vector<int> MaximumSlidingWindow(vector<int> &arr, int k)
-{
-    int n = arr.size();
+// this is brute force 
+    vector<int> maxSlidingWindow(vector<int>& nums, int k) {
+        vector<int> result ; 
+        int n = nums.size() ;
+        for (int i = 0; i <= n - k ; i++){
+            int maxSum = nums[i] ; 
 
-
-    vector<int> result;
-    for (int i = 0; i <= n - k; i++)
-    {    int maxsum = INT_MIN;
-        int sum = arr[i];
-
-        for (int j = 0; j <   k; j++)
-        {
-            sum = arr[ i + j]; // here its sum
-            maxsum = max(sum, maxsum);
+         
+            for (int j = 1 ; j < k ;j ++){ 
+             
+                maxSum = max(maxSum, nums[i + j] ); 
+            }
+            result.push_back(maxSum); 
         }
-        // here we get the max value
-
-        result.push_back(maxsum);
+        return result; 
     }
 
-    return result; // return the max vale
-}
-
-vector<int> maxSubarray(vector<int> &a, int k)
+    // maximum subarray size of k 
+int maxSubarray(vector<int> &a, int k)
 {
-    vector<int> ans;
+   
 
     int windowSum = 0;
-    for (int i = 0; i <= k; i++)
+    for (int i = 0; i < k; i++)
     {
         windowSum += a[i];
     }
@@ -61,20 +56,66 @@ vector<int> maxSubarray(vector<int> &a, int k)
         int j = k;
         j < a.size(); j++)
     {
+        windowSum += a[j] - a[j - k];
+        // windowSum -= a[j - k];
+       
+        maxSum = max(windowSum, maxSum);
+       
+    }
+    return maxSum;
+}
+// If goal = SUM of each window
+//  3 -1 1 5 14 16 
+
+vector<int> maxSubarrayOptime(vector<int> &a, int k)
+{
+    vector<int> ans;
+
+    int windowSum = 0;
+    for (int i = 0; i < k; i++)
+        windowSum += a[i];
+
+    ans.push_back(windowSum); // first window
+
+    for (int j = k; j < a.size(); j++)
+    {
         windowSum += a[j];
         windowSum -= a[j - k];
-        ans.push_back(maxSum);
-        maxSum = max(windowSum, maxSum);
+        ans.push_back(windowSum);
     }
     return ans;
+} 
+
+// If goal = MAX SUM among all windows
+
+// Then return int, not vector<int>:
+
+// ans =  16
+int maxSubarrays(vector<int> &a, int k)
+{
+    int windowSum = 0;
+    for (int i = 0; i < k; i++)
+        windowSum += a[i];
+
+    int maxSum = windowSum;
+
+    for (int j = k; j < a.size(); j++)
+    {
+        windowSum += a[j];
+        windowSum -= a[j - k];
+        maxSum = max(maxSum, windowSum);
+    }
+    return maxSum;
 }
 
 int main()
 {
 
-    vector<int> arr = {1, 3, -1, -3, 5, 3, 6, 7};
+    vector<int> arr = {1,3,-1,-3,5,3,6,7};
     int k = 3;
-    vector<int> answer = MaximumSlidingWindow(arr, k);
+    // cout << MaximumSlidingWindow(arr, k ) < endl; 
+// cout << maxSubarrays(arr, k) << endl; 
+    vector<int> answer =maxSlidingWindow(arr, k);
     for (auto i : answer)
     {
         cout << i << " ";

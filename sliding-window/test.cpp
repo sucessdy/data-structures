@@ -37,7 +37,7 @@ int shortestSubarray(vector<int> &nums, int k)
     vector<int> result ; 
 
     int sum = 0; 
- for ( )
+
 }
 
 int main()
@@ -46,7 +46,7 @@ int main()
     vector<int> a = {2,-1,2};
     int k = 3;
 
-    cout << shortestSubarray(a, k) << endl;
+    cout << LongestSubarray(a, k) << endl;
     cout << "jeje" << endl;
     return 0;
 }

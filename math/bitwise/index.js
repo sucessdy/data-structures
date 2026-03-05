@@ -14,3 +14,14 @@ return ans;
 }
 
 console.log(decToBinary(21)); 
+
+function missingNumber(nums) {
+    let xor = nums.length
+
+    for (let i = 0; i < nums.length; i++) {
+        xor ^= i ^ nums[i]
+    }
+
+    return xor
+}
+console.log(missingNumber([3, 0, 1])) ; 

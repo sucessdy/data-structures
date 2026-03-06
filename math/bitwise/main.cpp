@@ -90,7 +90,6 @@ int main()
 
     int n = 10;
     int b = 2;
-
     // cout << con(n) << endl;
 
     vector<int> ans = convertToBase(n, b);

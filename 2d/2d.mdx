@@ -1,0 +1,229 @@
+What is an Array?
+Before 2D arrays, we must be very clear about 1D array.
+A 1D array is simply a line of boxes in memory.
+
+Example:
+Index:   0   1   2   3   4
+Value:  [5] [2] [8] [1] [9]
+
+In C++:
+int arr[5] = {5,2,8,1,9};
+
+Memory concept:
+arr
+ ↓
+[5][2][8][1][9]
+
+You access values using index.
+
+arr[0] → 5
+arr[3] → 1
+
+So a 1D array = one row of values.
+
+2. Now Think Bigger
+
+What if we want something like this?
+
+1 2 3
+4 5 6
+7 8 9
+
+This is rows AND columns.
+Like a table.
+
+      column
+      0 1 2
+row 0 1 2 3
+row 1 4 5 6
+row 2 7 8 9
+
+This is called a 2D array.
+
+Think of it as:
+Array of arrays
+
+3. Real Life Analogy
+Think of a chess board.
+♜ ♞ ♝ ♛ ♚ ♝ ♞ ♜
+♟ ♟ ♟ ♟ ♟ ♟ ♟ ♟
+. . . . . . . .
+. . . . . . . .
+
+You locate a position using:
+(row, column)
+Example:
+(0,0)
+(2,3)
+(5,7)
+
+Same idea in programming.
+
+4. Declaring a 2D Array
+In C++:
+int arr[3][3];
+Meaning:
+3 rows
+3 columns
+
+Memory looks like:
+arr
+
+[ ][ ][ ]
+[ ][ ][ ]
+[ ][ ][ ]
+
+Total elements:
+3 × 3 = 9
+5. Initializing a 2D Array
+
+Example:
+int arr[3][3] = {
+ {1,2,3},
+ {4,5,6},
+ {7,8,9}
+};
+
+Memory becomes:
+
+[1][2][3]
+[4][5][6]
+[7][8][9]
+6. Accessing Elements
+Syntax:
+arr[row][column]
+
+Examples:
+arr[0][0] = 1
+arr[0][2] = 3
+arr[2][1] = 8
+
+So:
+arr[1][2] → 6
+Row = 1
+Column = 2
+
+7. How to Traverse a 2D Array
+We use nested loops.
+Why?
+Because:
+one loop for rows
+one loop for columns
+
+Example:
+```cpp 
+for(int i = 0; i < 3; i++)      // rows
+{
+    for(int j = 0; j < 3; j++)  // columns
+    {
+        cout << arr[i][j] << " ";
+    }
+    cout << endl;
+}
+```
+
+Output:
+1 2 3
+4 5 6
+7 8 9
+8. Input a 2D Array
+
+Example:
+int arr[3][3];
+
+for(int i = 0; i < 3; i++)
+{
+    for(int j = 0; j < 3; j++)
+    {
+        cin >> arr[i][j];
+    }
+}
+9. Visualizing the Loop
+
+When loops run:
+
+i = 0
+   j = 0 → arr[0][0]
+   j = 1 → arr[0][1]
+   j = 2 → arr[0][2]
+
+i = 1
+   j = 0 → arr[1][0]
+   j = 1 → arr[1][1]
+   j = 2 → arr[1][2]
+
+i = 2
+   j = 0 → arr[2][0]
+   j = 1 → arr[2][1]
+   j = 2 → arr[2][2]
+
+So the array is scanned row by row.
+
+This is called Row Major Traversal.
+
+10. Memory Truth (Very Important)
+
+Even though it looks like a table:
+
+[1][2][3]
+[4][5][6]
+[7][8][9]
+
+In memory it is actually stored like:
+
+[1][2][3][4][5][6][7][8][9]
+
+All in one continuous block.
+
+But we access it using:
+
+arr[row][column]
+11. Why 2D Arrays Are Important in DSA
+
+They are used in:
+
+Matrices
+
+Graphs
+
+Dynamic Programming
+
+Game boards
+
+Image processing
+
+Leetcode grid problems
+
+Example problems:
+
+Number of islands
+Matrix rotation
+Spiral matrix
+Search in matrix
+Flood fill
+
+You will see many grid problems in DSA.
+
+12. Small Practice (Your Turn)
+
+Tell me the output:
+
+int arr[2][3] = {
+ {1,2,3},
+ {4,5,6}
+};
+
+cout << arr[1][2];
+
+What will it print?
+
+A) 3
+B) 5
+C) 6
+D) 4
+
+Think slowly before answering.
+
+After this, I will teach you something very important most students miss:
+
+How 2D arrays actually work in memory (row-major formula) — this becomes powerful for interviews and deep understanding.

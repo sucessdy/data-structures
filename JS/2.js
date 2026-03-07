@@ -9,7 +9,7 @@ console.log(Boolean({})) // true
 
 // 5️⃣ What will be printed?
 
-let a = 0 
+let a = 0                                   
 let b = "Hello"
 
 console.log(a || b) // "Hello" -> or check value from LEFT to right -> and check the truty value ot falsy (0) is faslfy value so.... to the b .which is truthty

@@ -80,7 +80,7 @@ public:
     {
         if (!head)
         {
-
+cout << "list is empty " << endl; 
             return;
         }
         if (head == tail)

@@ -1,70 +1,51 @@
 #include <iostream>
-#include <vector>
+#include <vector> 
+#include <algorithm>
+ using namespace std; 
+  
 using namespace std;
+using ll = long long;
 
-// 2193/D  monster game
-/*
-a = swords
-b = monster
+const int N = 2e5 + 5;
 
-n swords -> once -> 1strickes
-n -level = to defeat a monster  u need to choose the difficulty (a[i] > x is usable swords) and if a[i] < x
- difficulty level -> most important
-
-score = x * level of completed
-
-trade off
-
-bigger x = fewer levels => fewer swrds
-smaller x = more level => more swords
-
-a = 2, 5, 3
-b = 1, 2, 1
-
-case 1 = when i have 3 swords
- 2, 5, 3 = total 3 swords  x = 2
-
- 3 - 1 (monster ) = 2 swords left
- 2 (swards ) - 2 ( monster) = 0 elft
- not hit the monster we don't have swords
-
-
- case 2 when i 2 swords ( 3, 5)
-x = 3
-left 2 swords
-2  -1 = 1 left swords
-
-not hit the monster we don't ahve swords
-
-score 3 * 1 = 3 ans
-
-case 3  (5) one swords
-x = 5
- 1 -1 (monster ) = 0 left (swords)
-
- score = 5 * 1 = 5 ans (maximum score)
-
-
-
-
- */
-
-int main()
-{
-
-    ios::sync_with_stdio(false) ;
-    cin.tie(NULL) ; 
-
-    int n;
-    cin >> n;
-    vector<long long> a(n)  , b(n) ; 
-    for(int i = 0 ;i < n ; i ++) cin >> a[i] ; 
-    for (int i = 0 ; i < n ; i++) cin >> b[i] ; 
-
-    long long ans = 0; 
-
-for (int i = 0; i < n ; i++){ 
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
     
-}
+    int t;
+    cin >> t;
+    
+    while(t--) {
+        int n;
+        cin >> n;
+        
+        vector<int> strength(n + 1), strikes(n + 1);
+        for(int i = 1; i <= n; i++) cin >> strength[i];
+        for(int i = 1; i <= n; i++) cin >> strikes[i];
+        
+        // Sort strengths in descending order
+        sort(strength.begin() + 1, strength.end(), greater<int>());
+        
+        int levels_completed = 0;
+        ll total_strikes = 0;
+        ll max_score = 0;
+        
+        // Try using 'i' strongest swords
+        for(int swords_used = 1; swords_used <= n; swords_used++) {
+            // Can we complete more levels?
+            while(levels_completed < n && 
+                  total_strikes + strikes[levels_completed + 1] <= swords_used) {
+                levels_completed++;
+                total_strikes += strikes[levels_completed];
+            }
+            
+            // strength[swords_used] is the weakest sword we're using
+            ll current_score = (ll)strength[swords_used] * levels_completed;
+            max_score = max(max_score, current_score);
+        }
+        
+        cout << max_score << "\n";
+    }
+    
     return 0;
 }

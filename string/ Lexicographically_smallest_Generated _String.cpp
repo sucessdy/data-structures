@@ -4,9 +4,9 @@ using namespace std;
 
 // 🔍 Meaning of T and F
 
-// For every index i:
+// For every index i: 
 
-// ✅ If str1[i] == 'T'
+// ✅ If str1[i] == 'T' 
 
 // Then:
 

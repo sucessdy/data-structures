@@ -23,13 +23,12 @@ int longestOne(vector<int> & nums, int k) {
 
     }
     return maxLen; 
-}
-int main()
-{
+} 
 
-    vector<int> arr= {0,1,0,1,1}; 
-    int k = 2; 
-    cout << longestOne(arr, k) << endl; 
+int main (){ 
+    vector<int> nums = {1, 0, 1, 0, } ;
+    int k = 2 ; 
+    cout << longestOne(nums, k) << endl; 
+    return 0; 
 
-    return 0;
 }

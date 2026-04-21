@@ -1,0 +1,87 @@
+* { 
+    margin: 0;
+    padding: 0;
+    
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f6fa;
+}
+.search-container{ 
+    background-color: #5474f6;
+}
+
+
+.container { 
+    display: flex;
+      height: 100vh;
+}
+
+#sidebar {
+  width: 30%;
+  background: #ffffff;
+  border-right: 1px solid #e0e0e0;
+  overflow-y: auto;
+  margin-right:  12px;
+}
+.email {
+  padding: 14px 16px;
+  border-bottom: 1px solid #f1f1f1;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 15px;
+}
+
+/* Hover effect */
+.email:hover {
+  background: #f9fafb;
+}
+
+/* States */
+.unread {
+  background: #ffffff;
+  font-weight: 600;
+}
+
+.read {
+  background: #f3f4f6;
+  color: #555;
+}
+
+.active {
+  background: #fff8dc;
+  border-left: 4px solid #facc15;
+}
+#detail {
+  flex: 1;
+  padding: 24px;
+  background: #fafafa;
+  margin: 12px;
+
+}#detail h2 {
+  margin: 0 0 10px;
+  font-size: 26px;
+}
+
+#detail p {
+  color: #444;
+  line-height: 1.5;
+  
+}
+button {
+  margin-top: 15px;
+  padding: 8px 14px;
+  border: none;
+  background: #2563eb;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: #1e40af;
+}

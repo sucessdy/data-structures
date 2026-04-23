@@ -29,15 +29,15 @@ return ans;
       
     }
 
-int decimalToBinary(int dec ){
+int decimalToBinary(int dec ) { 
      int ans = 0; 
      int pow = 1; 
-     while (dec > 0){ 
+     while (dec > 0) {  
         int remainder = dec%2; 
         dec = dec/2; 
         ans += remainder*pow; 
         pow = pow * 10; 
-     }
+     } 
      return ans; 
 }
 

@@ -1,24 +1,47 @@
 #include <iostream>
 #include <vector>
-#include <unordered_set> 
+#include <unordered_set>
 using namespace std;
 
-  bool isHappy(vector< int> n) {
-        unordered_set<int> set; 
-
-        for (auto it : n){ 
-if (set.find(it ) != set.end() ) {
-     return false;
-}
-set.insert(it) ;
-        }
-        return true  ;
+int SquareofSum(int n)
+{
+    int num = 0;
+    while (n != 0)
+    {
+        int dig = n % 10;
+        num += dig * dig;
+        n /= 10;
     }
+    return num;
+}
+bool isHappy(int n)
+{
 
-int main() {
-vector<int> n  = {2}; 
-    bool res = isHappy(n); 
+    unordered_set<int> set;
 
-    cout << (res ? "true" : "false") << endl;    
+    while (1)
+    {
+
+        n = SquareofSum(n) ; 
+        if (n == 1)
+        {
+            return true;
+        }
+
+        if (set.find(n) != set.end())
+        {
+            return false;
+        }
+        set.insert(n);
+    }
+}
+
+int main()
+{
+int n =19; 
+;
+    bool res = isHappy(n);
+
+    cout << (res ? "true" : "false") << endl;
     return 0;
 }

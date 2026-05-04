@@ -16,16 +16,14 @@ return cnt;
 int Palindrome (int n ) {
 int rev =0;
 int dup = n; 
-    while (n != 0){ 
-
+    while (n != 0){
         int num = n%10;
 rev = (rev *10) + num;  
        n/=10; 
-
- 
-    }return (rev == dup ) ? 1 : 0;  
-
+    }
+    return (rev == dup ) ? 1 : 0;  
  }
+
  int Armstrong (int n ) {
     int num =0;
     while ( n!=0 ) { 

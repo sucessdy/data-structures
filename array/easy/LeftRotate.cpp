@@ -10,7 +10,7 @@ int n =  nums.size() ;
 
     for (int i = 0; i < k; i++) // k=. 5, 4 , 6  = k-1 
     { 
-         temp[i] = nums[n - k + i]; // temp = 5, 4, 6
+         temp[i] = nums[]; // tn - k + iemp = 5, 4, 6
 
     }
 

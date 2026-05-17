@@ -53,10 +53,48 @@ void moveZerosOptimal(vector<int> &nums)
     }
 }
 
+void MoveRevision(vector<int> &nums)
+{
+    int n = nums.size();
+    vector<int> temp(n);
+    int j = 0;
+    for (int i = 0; i < n; i++)
+    {
+        if (nums[i] != 0)
+        {
+            temp[j] = nums[i];
+            j++;
+        }
+    }
+    while (j < n)
+    {
+
+        temp[j++] = 0;
+    }
+
+    for (int i = 0; i < n; i++)
+    {
+        nums[i] = temp[i];
+    }
+}
+
+void moveZero(vector<int> &nums)
+{
+    int j = 0; 
+    for ( int i = 0; i < nums.size() ; i ++){
+        if (i != j)
+    swap(nums[i], nums[j]); 
+    
+        if ( nums[i] != 0){
+            swap(nums[i], nums[j]) ; 
+            j++;
+        }
+    }
+}
 int main()
 {
     vector<int> num = {2, 4, 0, 5, 0, 5};
-    moveZerosOptimal(num);
+    moveZero(num);
 
     for (auto i : num)
     {

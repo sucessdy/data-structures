@@ -137,34 +137,34 @@ vector<int> findDuplicates(vector<int> &nums)
     return ans;
 }
 
-// 645. Set Mismatch
-// vector<int> findErrorNums(vector<int> &nums)
-// {
+// 645. Set Mismatch 
+vector<int> findErrorNums(vector<int> &nums)
+{
 
-//     int i = 0;
-//     int n = nums.size();
-//     vector<pair<int, int>> ans;
-//     while (i < n)
-//     {
-//         int index = nums[i] - 1;
-//         if (nums[i] != nums[index])
-//         {
-//             swap(nums[i], nums[index]);
-//         }
-//         else
-//         {
-//             i++;
-//         }
-//     }
-//     for (int i = 0; i < n; i++)
-//     {
-//         if (nums[i] != i + 1)
-//         {
-//             ans.push_back({i + 1, nums[i]});
-//         }
-//     }
-//     return ans;
-// }
+    int i = 0;
+    int n = nums.size();
+    vector<pair<int, int>> ans;
+    while (i < n)
+    {
+        int index = nums[i] - 1;
+        if (nums[i] != nums[index])
+        {
+            swap(nums[i], nums[index]);
+        }
+        else
+        {
+            i++;
+        }
+    }
+    for (int i = 0; i < n; i++)
+    {
+        if (nums[i] != i + 1)
+        {
+        return {nums[i], i + 1 };
+        }
+    }
+    return {-1, -1};
+}
 
 //  find missing positive
 
@@ -195,16 +195,16 @@ int firstMissingPositve(vector<int> &nums)
     }
     return n;
 }
+int main() {
+    vector<int> nums1 = {1, 2, 2, 4};
+    vector<int> result1 = findErrorNums(nums1);
+    cout << "Duplicate: " << result1[0] << ", Missing: " << result1[1] << endl;
 
-int main()
-{
-    vector<int> nums = {-1, 1, 3, 4};
-    cout << firstMissingPositve(nums) << endl;
-    // vector<int> res =findErr(nums);
-
-    // cout << "duplicated : " <<
-
-    cout << endl;
-
+    
+    vector<int> nums2 = {1, 1};
+    vector<int> result2 = findErrorNums(nums2);
+    cout << "Duplicate: " << result2[0] << ", Missing: " << result2[1] << endl;
+  
+    
     return 0;
 }

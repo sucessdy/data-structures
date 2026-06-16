@@ -8,12 +8,12 @@ int ans(vector<int> & arr, int target) {
     int end = 1;
 
     while ( target  > arr[end]) { 
-        int newStart = end + 1 ; 
+        int newStart = end + 1 ;  
         // end next element became the start cuz  
 
     end = end + ( end - start + 1)  * 2;
         // previous end + size of the box * 2 
-         start = newStart ; 
+         start = newStart ;  
 
     }
     return binarySearch(arr, target , start  , end) ; 

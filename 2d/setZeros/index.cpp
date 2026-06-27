@@ -3,11 +3,10 @@
 using namespace std;
 void setZeroes(vector<vector<int>> &matrix)
 {
-    int r= matrix.size();
-    int c = matrix[0].size();  // time complexity : O(r*c)
+    int r = matrix.size();
+    int c = matrix[0].size(); // time complexity : O(r*c)
 
-vector<bool> row(r , false) , col (c, false) ;  // space  O(r + c)
-
+    vector<bool> row(r, false), col(c, false); // space  O(r + c)
 
     for (int i = 0; i < r; i++)
     {
@@ -15,8 +14,8 @@ vector<bool> row(r , false) , col (c, false) ;  // space  O(r + c)
         {
             if (matrix[i][j] == 0)
             {
-               row[i] = true; 
-               col [j] = true; 
+                row[i] = true;
+                col[j] = true;
             }
         }
     }
@@ -27,88 +26,88 @@ vector<bool> row(r , false) , col (c, false) ;  // space  O(r + c)
         {
             if (row[i] || col[j])
             {
-              matrix[i][j] = 0  ; 
+                matrix[i][j] = 0;
+            }
+        }
+    }
+}
+
+// class Solution {
+// public: optimal one... O(1)
+// void setZeroes(vector<vector<int>>& matrix)
+// {
+//     bool rowzero=false,colzero=false;
+//     for(int j=0;j<matrix[0].size();j++)
+//         if(matrix[0][j]==0)
+//         {
+//             rowzero=true;
+//             break;
+//         }
+
+//     for(int i=0;i<matrix.size();i++)
+//         if(matrix[i][0]==0)
+//         {
+//             colzero=true;
+//             break;
+//         }
+
+//     for(int i=1;i<matrix.size();i++)
+//         for(int j=1;j<matrix[0].size();j++)
+//         {
+//             if(matrix[i][j]==0)
+//             {
+//                 matrix[i][0]=0;
+//                 matrix[0][j]=0;
+//             }
+//         }
+
+//     for(int i=1;i<matrix.size();i++)
+//         for(int j=1;j<matrix[0].size();j++)
+//     {
+//        if(matrix[i][0]==0 ||  matrix[0][j]==0)
+//             matrix[i][j]=0;
+//     }
+
+//     if(colzero)
+//     {
+//         for(int i=0;i<matrix.size();i++)
+//             matrix[i][0]=0;
+//     }
+
+//     if(rowzero)
+//     {
+//         for(int j=0;j<matrix[0].size();j++)
+//             matrix[0][j]=0;
+//     }
+
+// }
+
+// };/
+void setZeroeswithOptimal(vector<vector<int>> &mat)
+{
+    int row = mat.size();
+    int col = mat[0].size();
+
+    vector<bool> r(row, false), c(col, false);
+    for (int i = 0; i < row; ++i)
+    {
+        for (int j = 0; j < col; ++j)
+        {
+            if (mat[i][j] == 0)
+            {
+                r[i] = true;
+                c[j] = true;
             }
         }
     }
 
-   
-    }
-
-
-
-    // class Solution {
-// public: optimal one... O(1)
-    // void setZeroes(vector<vector<int>>& matrix) 
-    // {
-    //     bool rowzero=false,colzero=false;
-    //     for(int j=0;j<matrix[0].size();j++)
-    //         if(matrix[0][j]==0)
-    //         {
-    //             rowzero=true;
-    //             break;
-    //         }
-        
-    //     for(int i=0;i<matrix.size();i++)
-    //         if(matrix[i][0]==0)
-    //         {
-    //             colzero=true;
-    //             break;
-    //         }
-        
-    //     for(int i=1;i<matrix.size();i++)
-    //         for(int j=1;j<matrix[0].size();j++)
-    //         {
-    //             if(matrix[i][j]==0)
-    //             {
-    //                 matrix[i][0]=0;
-    //                 matrix[0][j]=0;
-    //             }
-    //         }
-
-    //     for(int i=1;i<matrix.size();i++)
-    //         for(int j=1;j<matrix[0].size();j++)
-    //     {
-    //        if(matrix[i][0]==0 ||  matrix[0][j]==0)
-    //             matrix[i][j]=0;     
-    //     }
-
-    //     if(colzero)
-    //     {
-    //         for(int i=0;i<matrix.size();i++)
-    //             matrix[i][0]=0;
-    //     }
-
-    //     if(rowzero)
-    //     {
-    //         for(int j=0;j<matrix[0].size();j++)
-    //             matrix[0][j]=0;
-    //     }
-        
-    // }
-          
-    
-// };/
-void setZeroeswithOptimal(vector<vector<int>> & mat){ 
-    int row = mat.size() ; 
-    int col = mat[0].size( ) ; 
-
-    vector<bool> r(row, false) , c (col, false) ; 
-    for(int i  = 0; i < row ; ++i ){
-        for ( int j = 0 ; j < col ; ++j){
-            if (mat[i][j] == 0){
-                r[i] = true; 
-                c[j] = true; 
-             }
-        }
-    }
-
-
-    for (int i = 0 ; i < row ; ++i){
-        for ( int j = 0 ; j < col ;++j) {
-            if (r[i] || c[j]){
-                mat[i][j] = 0; 
-
+    for (int i = 0; i < row; ++i)
+    {
+        for (int j = 0; j < col; ++j)
+        {
+            if (r[i] || c[j])
+            {
+                mat[i][j] = 0;
             }
         }
     }
@@ -117,11 +116,13 @@ void setZeroeswithOptimal(vector<vector<int>> & mat){
 int main()
 {
 
-    vector<vector<int>> mat = {{1,1,1},{1,0,1},{1,1,1}} ;
-setZeroeswithOptimal(mat)  ;
- 
-for (int i = 0; i < mat.size(); i++) {
-        for (int j = 0; j < mat[0].size(); j++) {
+    vector<vector<int>> mat = {{1, 1, 1}, {1, 0, 1}, {1, 1, 1}};
+    setZeroeswithOptimal(mat);
+
+    for (int i = 0; i < mat.size(); i++)
+    {
+        for (int j = 0; j < mat[0].size(); j++)
+        {
             cout << mat[i][j] << " ";
         }
         cout << endl;

@@ -1,17 +1,20 @@
 #include <iostream>
-#include  <vector> 
+#include <vector>
 using namespace std;
 
-void LS(int matrix[][4], int row, int col, int target) {
+void LS(int matrix[][4], int row, int col, int target)
+{
 
-    for (int i = 0; i < row; i++) {
-        for (int j = 0; j < col; j++) {
+    for (int i = 0; i < row; i++)
+    {
+        for (int j = 0; j < col; j++)
+        {
 
-            if (matrix[i][j] == target) {
+            if (matrix[i][j] == target)
+            {
                 cout << "Found at: " << i << "," << j << endl;
                 return;
             }
-
         }
     }
 
@@ -19,16 +22,16 @@ void LS(int matrix[][4], int row, int col, int target) {
 }
 // binary Search
 
-bool search2dMatrix(vector<vector<int>> & mat, int target) { 
+bool search2dMatrix(vector<vector<int>> &mat, int target)
+{
 
-    int row = mat.size(); 
-    int col = mat[0].size(); 
+    int row = mat.size();
+    int col = mat[0].size();
     int st = 0;
-     int end = col - 1; 
-
-     
+    int end = col - 1;
 }
-int main() {
+int main()
+{
 
     // int matrixes[4][4] = {
     //     {1, 2, 3, 4},
@@ -48,11 +51,9 @@ int main() {
         {1, 2, 3, 4},
         {5, 6, 7, 8},
         {9, 10, 11, 12},
-        {13, 14, 15, 16}
-    };
-    bool res = search2dMatrix(mat, 8 ); 
-    cout << (res ? "true" : "false ") << endl;  
+        {13, 14, 15, 16}};
+    bool res = search2dMatrix(mat, 8);
+    cout << (res ? "true" : "false ") << endl;
 
-return 0; 
-
+    return 0;
 }

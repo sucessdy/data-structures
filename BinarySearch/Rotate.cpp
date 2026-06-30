@@ -31,6 +31,18 @@ int Rotate(vector<int> &arr)
     return -1;
 }
 
+int FindMin (vector<int> arr) { 
+    int min = -1; 
+    int rotate = Rotate(arr) ; 
+    if ( rotate == -1){ 
+        return BinarySearch(arr,  0, arr.size() -1) ; 
+    }
+    if ( rotate > min){
+        return BinarySearch(arr, )
+    }
+
+}
+
 int BinarySearch(vector<int> arr, int target, int st, int end)
 {
 

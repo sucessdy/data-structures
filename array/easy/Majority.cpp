@@ -62,15 +62,18 @@ int majorityElementForOptimal(vector<int> &nums)
     int count = 0;
     int ans = 0;
 
-    for (auto num : nums){
- if (count == 0){
+    for (auto num : nums)
+    {
+        if (count == 0)
+        {
             ans = num;
+        }
+        count += (ans == num) ? 1 : -1;
     }
-count += (ans == num) ? 1 : -1;
-
-    }
-    return ans ;
+    return ans;
 }
+
+
 int main()
 {
     vector<int> nums = {2, 2, 1};

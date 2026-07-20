@@ -6,7 +6,7 @@ using namespace std;
 int  countDigits (int n ) { 
     int cnt= 0; 
 while (n != 0){ 
-//  int dig =    n % 10; 
+ int dig =    n % 10; 
  cnt++; 
 n/= 10; 
 }
@@ -139,7 +139,7 @@ int main() {
 //     cout << "Its a Armstrong number"  << endl; 
 
 // }
-// else { 
+// else {                                                                                                                                                                        
 //     cout <<" ITs not a Armstrong number"  << endl;
 // }
 // int n = 28; 

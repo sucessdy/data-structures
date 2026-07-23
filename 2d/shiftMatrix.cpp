@@ -61,8 +61,7 @@ using namespace std;
                 ans[row][col] = grid[i][j];
             }
         }
-
-        return ans;
+return ans ; 
     }
 
 int main()

@@ -21,8 +21,7 @@ void cylicSort(vector<int> &arr)
     }
 }
 
-//  misig number
-
+//  misig 
 int missingNumber(vector<int> &nums)
 {
     int n = nums.size();

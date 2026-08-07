@@ -1,27 +1,46 @@
-console.log((13).toString(2)) 
+// console.log((13).toString(2)) 
 
-function decToBinary(n ){ 
-let ans = "" ; 
+// function decToBinary(n ){ 
+// let ans = "" ; 
 
-while ( n > 0 ){ 
-ans = (n % 2) + ans; 
-n = Math.floor(n / 2) ; 
+// while ( n > 0 ){ 
+// ans = (n % 2) + ans; 
+// n = Math.floor(n / 2) ; 
 
-}
-return ans; 
+// }
+// return ans; 
 
 
-}
+// }
 
-console.log(decToBinary(21)); 
+// console.log(decToBinary(21)); 
 
-function missingNumber(nums) {
-    let xor = nums.length
+// function missingNumber(nums) {
+//     let xor = nums.length
 
-    for (let i = 0; i < nums.length; i++) {
-        xor ^= i ^ nums[i]
+//     for (let i = 0; i < nums.length; i++) {
+//         xor ^= i ^ nums[i]
+//     }
+
+//     return xor ; 
+// }
+// console.log(missingNumber([3, 0, 1])) ; 
+
+
+function missingNumberElement (nums) { 
+    let xor = nums.length ; 
+    for ( let i = 0; i < nums.length ; i++ ) { 
+        xor ^= i ^nums[i] ;
     }
-
-    return xor
+    return xor; 
 }
-console.log(missingNumber([3, 0, 1])) ; 
+let nums = [1,4,2,5, 6] ; 
+console.log(missingNumberElement(nums)) ; 
+
+function missingNumber (nums) { 
+    
+}
+
+
+
+
